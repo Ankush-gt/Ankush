@@ -25,7 +25,9 @@ class Auth {
             return false;
          }
       }
-   }
+    }
+   
+
 ?> 
 <!-- <?php
 

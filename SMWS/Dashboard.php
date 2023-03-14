@@ -38,10 +38,12 @@ $info = $userInfo->login();
         <span class="material-icons-outlined">search</span>
       </div>
       <div class="header-right">
-      <h1>Hello, <?php echo $info['firstName'] ; ?></h1>
-      <!-- <h1>Hello, <?php echo  $_SESSION['firstName']."Hello".  $_SESSION['email'] ."welcome"; ?></h1> -->
+        <h1>Hello,
+          <?php echo $info['firstName']; ?>
+        </h1>
+        <!-- <h1>Hello, <?php echo $_SESSION['firstName'] . "Hello" . $_SESSION['email'] . "welcome"; ?></h1> -->
 
-      
+
 
         <span class="material-icons-outlined">notifications</span>
         <span class="material-icons-outlined">email</span>
@@ -54,7 +56,7 @@ $info = $userInfo->login();
     <aside id="sidebar">
       <div class="sidebar-title">
         <div class="sidebar-brand">
-        <span><i class="bi bi-box-arrow-right"></i></span> <a href="logout.php">LOGOUT</a>
+          <span><i class="bi bi-box-arrow-right"></i></span> <a href="logout.php">LOGOUT</a>
         </div>
         <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
       </div>
@@ -66,9 +68,8 @@ $info = $userInfo->login();
           </a>
         </li>
         <li class="sidebar-list-item">
-          <a href="#" target="_blank">
-            <span class="material-icons-outlined">inventory_2</span> Products
-          </a>
+          <span class="material-icons-outlined">groups</span>
+          <button> <a href="Addnew.php" class="text-body">new</a></button>
         </li>
         <li class="sidebar-list-item">
           <a href="#" target="_blank">
@@ -104,7 +105,7 @@ $info = $userInfo->login();
       <div class="main-title">
         <h2>DASHBOARD</h2>
       </div>
-<!-- 
+      <!-- 
       <div class="main-cards">
 
         <div class="card">
@@ -123,16 +124,15 @@ $info = $userInfo->login();
           <h1>10</h1>
         </div> -->
 
-        <div class="card">
-          <div class="card-inner">
-            <!-- <h3>MEMBERS</h3> -->
-            <span class="material-icons-outlined">groups</span>
-            <button> <a href="Userlist.php" class="text-body">MEMBERS</a></button>
-
-          </div>
-          <h1>30</h1>
+      <div class="card">
+        <div class="card-inner">
+          <!-- <h3>MEMBERS</h3> -->
+<span class="material-icons-outlined"><a href="Userlist.php" class="text-body">groups<a><span><br>
+ <br>
         </div>
-<!-- 
+        <h3>Userlist</h3>
+      </div>
+      <!-- 
         <div class="card">
           <div class="card-inner">
             <h3>ABOUT</h3>
@@ -157,7 +157,7 @@ $info = $userInfo->login();
 
       </div>
     </main>  -->
-    <!-- End Main -->
+      <!-- End Main -->
 
   </div>
 

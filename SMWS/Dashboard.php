@@ -1,9 +1,8 @@
 <?php
 session_start();
-include("./include/config.php");
-include("./include/constant.php");
-include("./include/database.php");
+include("./protected/header.php");
 include("user.php");
+
 $info = $userInfo->login();
 ?>
 <!DOCTYPE html>
@@ -44,10 +43,10 @@ $info = $userInfo->login();
         <!-- <h1>Hello, <?php echo $_SESSION['firstName'] . "Hello" . $_SESSION['email'] . "welcome"; ?></h1> -->
 
 
-
+<!-- 
         <span class="material-icons-outlined">notifications</span>
         <span class="material-icons-outlined">email</span>
-        <span class="material-icons-outlined">account_circle</span>
+        <span class="material-icons-outlined">account_circle</span> -->
       </div>
     </header>
     <!-- End Header -->
@@ -73,7 +72,8 @@ $info = $userInfo->login();
         </li>
         <li class="sidebar-list-item">
           <a href="#" target="_blank">
-            <span class="material-icons-outlined">category</span> Categories
+            <span class="material-icons-outlined">category</span>
+            <button> <a href="searchuser.php" class="text-body">new</a></button>
           </a>
         </li>
         <li class="sidebar-list-item">
@@ -127,8 +127,8 @@ $info = $userInfo->login();
       <div class="card">
         <div class="card-inner">
           <!-- <h3>MEMBERS</h3> -->
-<span class="material-icons-outlined"><a href="Userlist.php" class="text-body">groups<a><span><br>
- <br>
+                  <span class="material-icons-outlined"><a href="Userlist.php" class="text-body">groups<a><span><br><br>
+             
         </div>
         <h3>Userlist</h3>
       </div>

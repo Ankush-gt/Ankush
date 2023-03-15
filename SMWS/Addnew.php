@@ -1,24 +1,24 @@
 <?php
-// include('./public/meta.php');
-// include('./public/header.php');
-// include("./include/database.php");
+include('./public/meta.php');
 include('./protected/header.php');
+include('./user.php');
 
 if (isset($_POST['firstName']) && isset($_POST['lastname']) && isset($_POST['submit'])) {
   $user = $_POST['firstName'];
   $lastName = $_POST['lastname'];
   $email = $_POST['email'];
   $password = $_POST['uPassword'];
+  $result= $userInfo->add($user,$lastName,$email,$password,);
 
-  $query = "INSERT INTO user ( `firstName`,`lastName`,`email`,`uPassword`) VALUES ('$user','$lastName','$email','$password');";
-  $result = $conn->query($query);
-  if ($result) {
-    $msg = "Registered Sussecfully";
-    echo $msg;
-  } else {
-    $msg = "Error Registering";
-    echo $msg;
-  }
+  // $query = "INSERT INTO user ( `firstName`,`lastName`,`email`,`uPassword`) VALUES ('$user','$lastName','$email','$password');";
+  // $result = $conn->query($query);
+  // if ($result) {
+  //   $msg = "Registered Sussecfully";
+  //   echo $msg;
+  // } else {
+  //   $msg = "Error Registering";
+  //   echo $msg;
+  // }
 
 }
 ?>

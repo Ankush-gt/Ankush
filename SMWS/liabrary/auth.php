@@ -1,34 +1,33 @@
 <?php
-class Auth {
-   public $isloggedIn = false;
-   function login($userName,$userPassword)
-   {
+class Auth
+{
+  public $isloggedIn = false;
+  function login($userName, $userPassword)
+  {
 
-   global $conn;
+    global $conn;
 
-   
+    $sql = "select * from user where email = '$userName' and  uPassword = '$userPassword' ";
+    $result = $conn->query($sql);
+    // print_r($result);exit;
 
-       $sql =  "select * from user where email = '$userName' and  uPassword = '$userPassword' ";
-       $result = $conn->query($sql);
-      // print_r($result);exit;
+    if ($result) {
+      $rowCount = mysqli_num_rows($result);
 
-        if ($result){
-          $rowCount = mysqli_num_rows($result);
+      if ($rowCount == 1) {
+        return true;
 
-          if($rowCount==1){ 
-            return true;
-
-          } else {
-            return false;
-          }
-         } else {
-            return false;
-         }
+      } else {
+        return false;
       }
+    } else {
+      return false;
     }
-   
+  }
+}
 
-?> 
+
+?>
 <!-- <?php
 
 // if (isset($_POST['userName']) && isset($_POST['userPassword'])) {
@@ -68,32 +67,32 @@ class Auth {
 // }
 
 // if ($row['$userName'] === $userPassword && $row['$userPassword'] === $userPassword) {
-   //  echo "Logged in!";
-   //  $_SESSION['userName'] = $row['userName'];
-   //  $_SESSION['userPassword'] = $row['userPassword'];
-   // header("Location: home.php");
-   // exit();
-   // } else if{
-   
-   //   header("Location: index.php?error=Incorect User name or password");
-   
-   //   exit();
-   
-   //  } else if {
-   //  header("Location: index.php?error=Incorect User name or password");
-   
-   // exit();
-   
-   // } else {
-   
-   // header("Location: index.php");
-   
-   // exit();
-   //  }
-   
+//  echo "Logged in!";
+//  $_SESSION['userName'] = $row['userName'];
+//  $_SESSION['userPassword'] = $row['userPassword'];
+// header("Location: home.php");
+// exit();
+// } else if{
+
+//   header("Location: index.php?error=Incorect User name or password");
+
+//   exit();
+
+//  } else if {
+//  header("Location: index.php?error=Incorect User name or password");
+
+// exit();
+
+// } else {
+
+// header("Location: index.php");
+
+// exit();
+//  }
 
 
-   // if(!empty($userName) || !empty($userPassword)) {
-   //    return true;
-  // }
+
+// if(!empty($userName) || !empty($userPassword)) {
+//    return true;
+// }
 ?> -->

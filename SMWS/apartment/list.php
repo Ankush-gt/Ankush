@@ -31,7 +31,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/smws/public/meta.php') ;
                             <tr>
                                 <th>Apt Id</th>
                                 <th>Apt Name</th>
-                                <th>Apt Address</th>
+                                <th>Apt city</th>
                             </tr>
                         </thead>
                         <tbody>

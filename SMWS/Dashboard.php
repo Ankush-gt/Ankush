@@ -1,9 +1,13 @@
 <?php
 session_start();
-include("./protected/header.php");
-include("user.php");
+include($_SERVER['DOCUMENT_ROOT'] . '/smws/protected/header.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/smws/public/meta.php');
 
-$info = $userInfo->login();
+
+
+$info = $userInfo->getinfo();
+// print_r($_SESSION);
+// $Apartinfo =$apartment->apartlist();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +17,8 @@ $info = $userInfo->login();
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <!-- //boxicons -->
 
   <!-- Montserrat Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -38,12 +44,10 @@ $info = $userInfo->login();
       </div>
       <div class="header-right">
         <h1>Hello,
-          <?php echo $info['firstName']; ?>
+           <?php echo $info['firstName']; ?>  
         </h1>
-        <!-- <h1>Hello, <?php echo $_SESSION['firstName'] . "Hello" . $_SESSION['email'] . "welcome"; ?></h1> -->
 
-
-<!-- 
+        <!-- 
         <span class="material-icons-outlined">notifications</span>
         <span class="material-icons-outlined">email</span>
         <span class="material-icons-outlined">account_circle</span> -->
@@ -67,72 +71,67 @@ $info = $userInfo->login();
           </a>
         </li>
         <li class="sidebar-list-item">
-          <span class="material-icons-outlined">groups</span>
-          <button> <a href="Addnew.php" class="text-body">new</a></button>
-        </li>
         <li class="sidebar-list-item">
           <a href="#" target="_blank">
-            <span class="material-icons-outlined">category</span>
-            <button> <a href="searchuser.php" class="text-body">new</a></button>
+            <span class="material-icons-outlined"></span>About
           </a>
         </li>
+        <!-- <li class="sidebar-list-item"> -->
         <li class="sidebar-list-item">
           <a href="#" target="_blank">
-            <span class="material-icons-outlined">groups</span> Customers
+            <span class="material-icons-outlined">dashboard</span> Contact
           </a>
         </li>
+
         <li class="sidebar-list-item">
           <a href="#" target="_blank">
-            <span class="material-icons-outlined">fact_check</span> Inventory
+            <span class="material-icons-outlined">dashboard</span>Solace
           </a>
         </li>
-        <li class="sidebar-list-item">
-          <a href="#" target="_blank">
-            <span class="material-icons-outlined">poll</span> Reports
-          </a>
-        </li>
-        <li class="sidebar-list-item">
-          <a href="#" target="_blank">
-            <span class="material-icons-outlined">settings</span> Settings
-          </a>
-        </li>
+        </a>
+
+
+
       </ul>
     </aside>
-    <!-- End Sidebar -->
+
 
     <!-- Main -->
     <main class="main-container">
       <div class="main-title">
         <h2>DASHBOARD</h2>
       </div>
-      <!-- 
+
       <div class="main-cards">
 
         <div class="card">
-          <div class="card-inner">
-            <h3>BUILDNAME</h3>
-            <span class="material-icons-outlined">inventory_2</span>
-          </div>
-          <h1>10</h1>
+          <li>
+            <box-icon type='solid' name='message-dots'></box-icon>
+            <span class="text">
+              <h3><a href="apartment/apartdash.php">Building</a></h3>
+
+            </span>
+          </li>
+        </div>
+
+        <div class="card">
+          <li>
+            <box-icon type='solid' name='message-dots'></box-icon>
+            <span class="text">
+              <h3><a href="notes/meet.php">View Meet Notes</a></h3>
+
+            </span>
+          </li>
         </div>
 
         <div class="card">
           <div class="card-inner">
-            <h3>CHAIRMAN</h3>
-            <span class="material-icons-outlined">category</span>
-          </div>
-          <h1>10</h1>
-        </div> -->
 
-      <div class="card">
-        <div class="card-inner">
-          <!-- <h3>MEMBERS</h3> -->
-                  <span class="material-icons-outlined"><a href="Userlist.php" class="text-body">groups<a><span><br><br>
-             
+            <span class="material-icons-outlined"><a href="user/userdash2.php" class="text-body">groups<a><span><br><br>
+          </div>
+          <h3>UserInfo</h3>
         </div>
-        <h3>Userlist</h3>
-      </div>
-      <!-- 
+
         <div class="card">
           <div class="card-inner">
             <h3>ABOUT</h3>
@@ -156,15 +155,14 @@ $info = $userInfo->login();
         </div>
 
       </div>
-    </main>  -->
-      <!-- End Main -->
+    </main>
+
 
   </div>
 
-  <!-- Scripts -->
-  <!-- ApexCharts -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-  <!-- Custom JS -->
+
   <script src="js/scripts.js"></script>
 </body>
 

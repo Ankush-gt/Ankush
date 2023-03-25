@@ -36,8 +36,8 @@ class apartment
         $query = "INSERT INTO apartment ( `aptName`,`aCity`,`aState`,`aCountry`) VALUES ('$aptName','$aCity','$aState','$aCountry')";
         $result = $conn->query($query);
         if ($result) {
-            $sql = "SELECT aId FROM user WHERE aState  = $aState And aCountry = $aCountry";
-            $row = $conn->query($query);
+            $sql = "SELECT aId FROM user WHERE aState  = '$aState' And aCountry = '$aCountry'";
+            $row = $conn->query($sql);
             $id = mysqli_fetch_assoc($row);
             echo "Added sucessfully";
             return $id;
@@ -54,42 +54,17 @@ class apartment
         $row = mysqli_fetch_array($result2);
         return $row;
     }
-    function Aptupdate($aId,$aptName, $Address,$aCity)
+    function Aptupdate($aId, $aptName, $Address, $aCity)
     {
         global $conn;
-        $sql = "UPDATE apartment SET aId= '".$aId."',aptName='".$aptName."',`Address`='".$Address."',aCity='".$aCity."'
+        $sql = "UPDATE apartment SET aId= '" . $aId . "',aptName='" . $aptName . "',`Address`='" . $Address . "',aCity='" . $aCity . "'
         WHERE aId =$aId ";
         // echo $sql;
-        $result =$conn->query($sql);
+        $result = $conn->query($sql);
         echo "Updated successfully";
 
 
-      
+
     }
-// function addApt($aptName, $aptAddress, $aptCity, $aptState, $aptCountry) //adding new user
-//  {
-//     //code to add new user entry
-//     global $conn;
-//     $sqlAddApt = "INSERT INTO apartment(name, address, city, state, country) VALUES('$aptName','$aptAddress','$aptCity','$aptState', '$aptCountry')";
 
-//     $output = $conn->query($sqlAddApt);
-//     if (!$output) {
-//         echo 'not done';
-//     } else {
-//         echo 'done ';
-//     }
-// }
-// function getAptById($aptId) //get specific user by userId
-// {
-//     //code to get single Apartment details from database.
-
-// }
-// //new lines starts
-// function updateAptInfo()
-// {
-//new line ends
-// }
 }
-
-// }
-// $apt = new apartment();

@@ -29,7 +29,7 @@ if (isset($_POST['aptName']) && isset($_POST['aCity']) && isset($_POST['submit']
 <!-- partial:index.partial.html -->
 <div class="login-form">
   <form method="POST">
-    <h1>Add new user</h1>
+    <h1>Add Appartment</h1>
     <div class="content">
       <!-- <div class="input-field">
           <input type="uId" placeholder="uId" name="uId">
